@@ -1,0 +1,120 @@
+#include <iostream>
+using namespace std;
+
+class Base {
+public:
+    void showBase() {
+        cout << "Base class method" << endl;
+    }
+};
+
+class SingleDerived : public Base {
+public:
+    void showSingle() {
+        cout << "Single Inheritance" << endl;
+    }
+};
+class AnotherBase {
+public:
+    void showAnother() {
+        cout << "Another Base class method" << endl;
+    }
+};
+
+class MultipleDerived : public Base, public AnotherBase {
+public:
+    void showMultiple() {
+        cout << "Multiple Inheritance" << endl;
+    }
+};
+
+// Multilevel Inheritance
+class Intermediate : public Base {
+public:
+    void showIntermediate() {
+        cout << "Intermediate class method" << endl;
+    }
+};
+
+class MultilevelDerived : public Intermediate {
+public:
+    void showMultilevel() {
+        cout << "Multilevel Inheritance" << endl;
+    }
+};
+
+
+class HierarchicalDerived1 : public Base {
+public:
+    void showH1() {
+        cout << "Hierarchical Derived 1" << endl;
+    }
+};
+
+class HierarchicalDerived2 : public Base {
+public:
+    void showH2() {
+        cout << "Hierarchical Derived 2" << endl;
+    }
+};
+
+
+class HybridBase {
+public:
+    void showHybridBase() {
+        cout << "Hybrid Base class" << endl;
+    }
+};
+
+class HybridDerived1 : virtual public HybridBase {
+public:
+    void showHD1() {
+        cout << "Hybrid Derived 1" << endl;
+    }
+};
+
+class HybridDerived2 : virtual public HybridBase {
+public:
+    void showHD2() {
+        cout << "Hybrid Derived 2" << endl;
+    }
+};
+
+class Hybrid : public HybridDerived1, public HybridDerived2 {
+public:
+    void showHybrid() {
+        cout << "Hybrid Inheritance" << endl;
+    }
+};
+
+int main() {
+    SingleDerived s;
+    s.showBase();
+    s.showSingle();
+
+    MultipleDerived m;
+    m.showBase();
+    m.showAnother();
+    m.showMultiple();
+
+    MultilevelDerived ml;
+    ml.showBase();
+    ml.showIntermediate();
+    ml.showMultilevel();
+
+    HierarchicalDerived1 h1;
+    h1.showBase();
+    h1.showH1();
+
+    HierarchicalDerived2 h2;
+    h2.showBase();
+    h2.showH2();
+
+    Hybrid h;
+    h.showHybridBase();
+    h.showHD1();
+    h.showHD2();
+    h.showHybrid();
+
+    return 0;
+}
